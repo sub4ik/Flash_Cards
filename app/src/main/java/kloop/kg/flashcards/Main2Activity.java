@@ -27,7 +27,7 @@ public class Main2Activity extends Activity {
     private View.OnClickListener onClickListener;
     private Button btnAdd;
     private Button btnLearn;
-    private Button btnList1;
+    private Button btnAllLists;
     private EditText etWord;
     private EditText etTranslate;
 
@@ -91,24 +91,24 @@ public class Main2Activity extends Activity {
     private void getTextInIntent() {
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
-            String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+            String wordToTranslate = intent.getStringExtra(Intent.EXTRA_TEXT);
             etWord.setText("");
             etTranslate.setText("");
-            etWord.setText(text);
-            String text1 = translate(text, "ru");
-            etTranslate.setText(text1);
+            etWord.setText(wordToTranslate);
+            String translatingWord = translate(wordToTranslate, "ru");
+            etTranslate.setText(translatingWord);
 
             ContentValues cv = new ContentValues();
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            cv.put("word", text);
-            cv.put("translateWord", text1);
+            cv.put("word", wordToTranslate);
+            cv.put("translateWord", translatingWord);
             cv.put("learning", "0");
             cv.put("learned", "0");
             cv.put("notlearned", "1");
             cv.put("hidden", "0");
             db.insert("mytable", null, cv);
-            Toast.makeText(getApplicationContext(),text1 , Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),translatingWord , Toast.LENGTH_LONG).show();
             dbHelper.close();
             this.finish();
         } else {
@@ -155,13 +155,13 @@ public class Main2Activity extends Activity {
     private void connectListeners() {
         btnAdd.setOnClickListener(onClickListener);
         btnLearn.setOnClickListener(onClickListener);
-        btnList1.setOnClickListener(onClickListener);
+        btnAllLists.setOnClickListener(onClickListener);
     }
 
     private void init() {
         btnAdd = (Button)findViewById(R.id.btnAdd);
         btnLearn = (Button)findViewById(R.id.btnLearn);
-        btnList1 = (Button)findViewById(R.id.btnList1);
+        btnAllLists = (Button)findViewById(R.id.btnList1);
         etWord = (EditText)findViewById(R.id.etWord);
         etTranslate = (EditText)findViewById(R.id.etTranslate);
     }

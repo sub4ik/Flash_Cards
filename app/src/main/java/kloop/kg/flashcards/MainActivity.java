@@ -54,7 +54,6 @@ public class MainActivity extends Activity {
     }
 
     private void init() {
-        //btnNext = (Button) findViewById(R.id.btnNext);
         btnLearned = (Button) findViewById(R.id.btnLearned);
         btnAllWordsList = (Button) findViewById(R.id.btnAllWordsList);
         btnHide = (Button) findViewById(R.id.btnHide);
@@ -286,7 +285,6 @@ public class MainActivity extends Activity {
             do {
                 idList.add(c.getInt(c.getColumnIndex("_id")));
             } while (c.moveToNext());
-            //k = idList.size() / 10;
             if (ostatok <= idList.size()) {
                 idList2 = getRandomNumber(ostatok, idList.size());
                 for (int i = 0; i < idList2.size(); i++) {
