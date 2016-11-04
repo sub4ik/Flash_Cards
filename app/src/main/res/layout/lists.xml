@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#E6E6E6">
+
+    <ListView
+        android:id="@+id/lvMainMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.65"
+        android:layout_marginBottom="60dp">
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:background="#615053"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="60dp">
+
+        <Button
+            android:layout_height="match_parent"
+            android:text="назад"
+            android:id="@+id/btnBackBack"
+            android:textSize="13sp"
+            android:background="#615053"
+            android:layout_width="105dp"
+            android:textColor="@color/common_plus_signin_btn_text_dark_pressed" />
+
+        <Button
+            android:id="@+id/btnDeleteFromList"
+            android:layout_height="match_parent"
+            android:text="удалить из списка"
+            android:textSize="12sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="#615053"
+            android:layout_width="150dp"
+            android:textColor="@color/common_plus_signin_btn_text_dark_pressed">
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button"
+            android:layout_weight="1"
+            android:background="#615053" />
+
+    </LinearLayout>
+
+</RelativeLayout>

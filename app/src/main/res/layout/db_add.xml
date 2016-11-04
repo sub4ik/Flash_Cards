@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B68E94">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="Слово"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textSize="20dp"
+            android:textColor="#161313"
+            android:textStyle="normal|bold">
+        </TextView>
+
+        <EditText
+            android:layout_width="210dp"
+            android:layout_height="60dp"
+            android:id="@+id/etWord"
+            android:textStyle="normal|bold"
+            android:textSize="18dp"
+            android:background="#F0C0C8" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="Перевод"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textSize="20dp"
+            android:textColor="#161313"
+            android:textStyle="normal|bold">
+        </TextView>
+
+        <EditText
+            android:layout_width="210dp"
+            android:layout_height="60dp"
+            android:id="@+id/etTranslate"
+            android:textStyle="normal|bold"
+            android:textSize="18dp"
+            android:background="#F0C0C8" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="40dp">
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="добавить карту"
+            android:background="#6ae3a691"
+            android:layout_marginLeft="5dp">
+        </Button>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="список слов"
+            android:id="@+id/btnList1"
+            android:layout_marginLeft="10dp"
+            android:background="#6ae3a691"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <!--<Button
+            android:id="@+id/btnClear"
+            android:layout_width="105dp"
+            android:layout_height="match_parent"
+            android:text="удалить все слова"
+            android:layout_marginLeft="10dp"
+            android:background="#6ae3a691"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">-->
+        <!--</Button>-->
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLearn"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="Приступить к  изучению"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:textSize="35dp"
+        android:background="#6ae3a691"
+        android:layout_marginRight="20dp">
+    </Button>
+
+</LinearLayout>
