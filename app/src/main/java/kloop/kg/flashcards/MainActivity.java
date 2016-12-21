@@ -168,6 +168,7 @@ public class MainActivity extends Activity {
             }
         };
 
+
         onTouchListener = new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
