@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,8 @@ public class MainActivity extends Activity {
     private float x1, x2;
     int qq;
 
-    private Button btnLearned, btnAddNewWords, btnHide, btnAllWordsList, btnMix;
+    private Button btnLearned, btnHide, btnMix;
+    private ImageButton btnAllWordsList, btnAddNewWords;
     private TextView txtWord;
 
 
@@ -55,9 +57,9 @@ public class MainActivity extends Activity {
 
     private void init() {
         btnLearned = (Button) findViewById(R.id.btnLearned);
-        btnAllWordsList = (Button) findViewById(R.id.btnAllWordsList);
+        btnAllWordsList = (ImageButton) findViewById(R.id.btnAllWordsList);
         btnHide = (Button) findViewById(R.id.btnHide);
-        btnAddNewWords = (Button) findViewById(R.id.btnAddNewWords);
+        btnAddNewWords = (ImageButton) findViewById(R.id.btnAddNewWords);
         btnMix = (Button) findViewById(R.id.btnMix);
         txtWord = (TextView) findViewById(R.id.txtWord);
     }
@@ -71,8 +73,8 @@ public class MainActivity extends Activity {
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 switch (view.getId()) {
                     case R.id.btnAddNewWords:
-                        Intent intent2 = new Intent(MainActivity.this, Main2Activity.class);
-                        startActivity(intent2);
+                        Intent intent1 = new Intent(MainActivity.this, Main2Activity.class);
+                        startActivity(intent1);
                         break;
                     case R.id.btnLearned:
                         Cursor c = db.query("mytable", null, "learning = 1", null, null, null, null);
@@ -111,7 +113,16 @@ public class MainActivity extends Activity {
                                 rndWord = random.nextInt(list.size());
                                 txtWord.setText(list.get(rndWord).getWord());
                             }
-                        } else txtWord.setText("Добавьте слова для изучения");
+                        } else {
+                            txtWord.setText("Добавьте слова для изучения");
+                            txtWord.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
                         c.close();
                         break;
                     case R.id.btnAllWordsList:
@@ -189,19 +200,20 @@ public class MainActivity extends Activity {
                                 txtWord.setText(list.get(preWord).getWord());
                                 qq = 1;
                             }
-                        } else if ((x2 + 40 )< x1) {
+                        } else if ((x2 + 40) < x1) {
                             if (qq == 1) {
                                 if (list.size() > 0) {
-                                txtWord.setText(list.get(rndWord).getWord());
-                                qq = 2;
+                                    txtWord.setText(list.get(rndWord).getWord());
+                                    qq = 2;
                                 }
                             } else if (list.size() != 0) {
                                 preWord = rndWord;
-                                if (list.size() > 1) while (rndWord == preWord) rndWord = random.nextInt(list.size());
+                                if (list.size() > 1) while (rndWord == preWord)
+                                    rndWord = random.nextInt(list.size());
                                 txtWord.setText(list.get(rndWord).getWord());
                                 qq = 2;
                             } else txtWord.setText("Добавьте слова для изучения");
-                        } else if (Math.abs(x1-x2) < 40) {
+                        } else if (Math.abs(x1 - x2) < 40) {
                             if (qq == 1) {
                                 if (list.size() > 0)
                                     txtWord.setText(list.get(preWord).getTranslate());
